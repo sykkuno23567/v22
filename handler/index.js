@@ -22,6 +22,8 @@ module.exports = async (client) => {
         }
     });
 
+
+
     // Events
     const eventFiles = await globPromise(`${process.cwd()}/events/*.js`);
     eventFiles.map((value) => require(value));
@@ -51,5 +53,5 @@ module.exports = async (client) => {
     const { mongooseConnectionString } = require('../config.json')
     if (!mongooseConnectionString) return;
 
-    mongoose.connect(mongooseConnectionString).then(() => console.log('Connected to mongodb'));
+    mongoose.connect(mongooseConnectionString).then(() => console.log('✅ + Connected to mongodb'));
 };

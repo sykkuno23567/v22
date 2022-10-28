@@ -1,5 +1,21 @@
 {
-    "token": "ODMyMzkwMjA5ODgxODk5MDM5.YHjFyw.b9YXqBPmIbKAZH2mlGvjj7lJ-EE",
-    "prefix": "!",
-    "mongooseConnectionString": "mongodb://mongo:Azi0ki0J66j0yvsxOyfm@containers-us-west-34.railway.app:7725"
+    "token": "OTkzMjAwNjAwNzAxNDY4NzMz.GSiPOv.6aXCOMyw3cKxcmr7FHEUukmEy-tR8GpM3vrsK4",
+    "prefix": ">",
+    "mongooseConnectionString": "mongodb+srv://SNAP:Islam198@snapigoo.o3fdtko.mongodb.net/?retryWrites=true&w=majority",
+  "hostedBy": true,
+      "channel_id": "1008785858456977478",
+    "role_id": "1021600207265337395",
+    "guild_id": "984183952497586246",
+    "line_image": "https://media.discordapp.net/attachments/1015021247446405130/1022223891239796746/png_20220901_230019_0000-01.jpg",
+  "imeghelp": "https://media.discordapp.net/attachments/612562696268677123/1015371536816930927/png_20220901_230019_0000.png?width=1086&height=611",
+  
+    "clientID": "832390209881899039",
+    
+    "guessTime": 15,
+    
+    "leaderboard": true,
+    "leaderboardLength": 9,
+    "leaderboardInline": true
+
+
 }

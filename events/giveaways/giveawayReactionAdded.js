@@ -4,18 +4,21 @@ module.exports = {
     let approved =  new Discord.MessageEmbed()
     .setTimestamp()
     .setColor("#2F3136")
-    .setTitle("Entry Approved! | You have a chance to win!!")
+    .setAuthor({name: "Entry Confirmed!", iconURL: "https://i.imgur.com/Lf1IHlA.png"})    
     .setDescription(
-      `Your entry to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been approved!`
+      `Your entry to **${giveaway.prize}** on [This Server](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been approved! \nEarn extra points by [Voting.](https://top.gg/bot/832390209881899039/vote) \n\n [Invite](https://discord.com/api/oauth2/authorize?client_id=832390209881899039&permissions=1102196370503&scope=bot%20applications.commands) | [Support](https://discord.gg/ReJ2CSpMfa)`
     )
+.setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMwlBU10alwahOtwLblTpcdjtYWQn2_1AJKw&usqp=CAU')
+    .setFooter({ text: "©️ Snap" })
     .setTimestamp()
    let denied =  new Discord.MessageEmbed()
     .setTimestamp()
     .setColor("#2F3136")
-    .setTitle(":x: Entry Denied | Databse Entry Not Found & Returned!")
+    .setAuthor({name: "Entry Denied!", iconURL: "https://i.imgur.com/Jjo00oT.png"})    
     .setDescription(
-      `Your entry to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been denied, please review the requirements to the giveaway properly.`
+      `Your entry to **${giveaway.prize}** on [This Server](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been denied \nPlease review the requirements to enter the giveaway properly. \n\n [Invite](https://discord.com/api/oauth2/authorize?client_id=832390209881899039&permissions=1102196370503&scope=bot%20applications.commands) | [Support](https://discord.gg/ReJ2CSpMfa)`
     )
+    .setFooter({ text: "©️ Snap" })
 
     let client = messageReaction.message.client
     if (reactor.user.bot) return;

@@ -4,12 +4,12 @@ module.exports = {
     return member.send({
       embeds: [new Discord.MessageEmbed()
         .setTimestamp()
-        .setTitle('❓ Hold Up Did You Just Remove a Reaction From A Giveaway?')
-        .setColor("#2F3136")
+        .setTitle('**Did You Not Like My Giveaway!**')
+        .setColor("RANDOM")
         .setDescription(
-          `Your entery to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) was recorded but you un-reacted, since you don't need **${giveaway.prize}** I would have to choose someone else 😭`
+          `Your entery to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) was Removed Form **${giveaway.prize}** I would have to choose someone else ✌️`
         )
-        .setFooter({ text: "Think It was a mistake? Go react again!" })
+        .setFooter({ text: "Think It was a mistake? Go react 🎉 again! i Will Be Happy To Let You Win" })
       ]
     }).catch(e => {})
 

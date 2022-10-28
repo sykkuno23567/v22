@@ -1,0 +1,22 @@
+{
+    "channel_979791131200094308": {
+        "type": "GUILD_TEXT",
+        "guild": "979791131200094308",
+        "guildId": "979791131200094308",
+        "parentId": "979791131757903872",
+        "permissionOverwrites": [],
+        "messages": [
+            "1027533798314868827",
+            "1027533869278310431"
+        ],
+        "threads": [],
+        "nsfw": false,
+        "id": "1026849717138767951",
+        "name": "test",
+        "rawPosition": 0,
+        "topic": null,
+        "lastMessageId": "1027533869278310431",
+        "rateLimitPerUser": 0,
+        "createdTimestamp": 1664890450511
+    }
+}

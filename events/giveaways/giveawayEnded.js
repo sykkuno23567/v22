@@ -4,9 +4,10 @@ module.exports = {
     winners.forEach((member) => {
       member.send({
         embeds: [new Discord.MessageEmbed()
-          .setTitle(`🎁 Let's goo!`)
-          .setColor("#2F3136")
-          .setDescription(`Hello there ${member.user}\n I heard that you have won **[[This Giveaway]](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})**\n Good Job On Winning **${giveaway.prize}!**\nDirect Message the host to claim your prize!!`)
+          .setTitle(`🎉🎉YOU WON🎉🎉`)
+          .setColor("RANDOM")
+          .setDescription(`Hello there ${member.user}\n Congratulations 🎉**[[This Giveaway]](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})**\n You Have Won **${giveaway.prize}!**\nSend Message the host to claim your prize!!`)
+                 .setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQXz35Ql50HTABLaHlQiF-9xp-puLCXIOnIw&usqp=CAU')
           .setTimestamp()
           .setFooter({
             text: `${member.user.username}`, 
