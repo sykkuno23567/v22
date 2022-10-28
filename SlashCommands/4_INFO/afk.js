@@ -21,7 +21,7 @@ module.exports = {
         }).save();
 
         if (!interaction.member.displayName.includes(`[AFK] `)) {
-                interaction.member.setNickname(`[AFK]-` + interaction.member.displayName).catch(e => {interaction.member.send("i couldn't Change Your Name \n\`MY ROLE IS LOWER THEN YOURS\`") });
+                interaction.member.setNickname(`[AFK]-` + interaction.member.displayName).catch(e => {interaction.member.send("📛 i couldn't Change Your Name \n\`MY ROLE IS LOWER THEN YOURS!\`") });
         }
         
         let embed = new MessageEmbed()

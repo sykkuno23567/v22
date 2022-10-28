@@ -10,7 +10,7 @@ const { InfinityAutoPoster } = require('ibl-autopost')
 
 const poster = InfinityAutoPoster('xIN6xQPRF42peDqiVDBi9xhyhDLlldCIOdjPrujohggDn8kSChk2Arxdd3LUkGAyCABwJ2tZjStcY4aOSnbqBbeQGSC1zRvvA4oy', client) // your discord.js or eris client
 
-Optional Logger
+
 poster.on('posted', (stats) => {
 
   console.log(`Posted stats to the Infinity Bot List API | ${stats.servers} servers`)
