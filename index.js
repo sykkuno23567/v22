@@ -263,7 +263,7 @@ const mod = message.guild
 
 
 const activities = [
-    { name: 'Dis Halloween 🎃', type: 'PLAYING' }
+    { name: 'New Year 🎄', type: 'PLAYING' }
     
 ];
 client.on('ready', () => {
@@ -271,7 +271,7 @@ client.on('ready', () => {
     client.user.setPresence({ status: 'online', activity: activities[0] });
     let activity = 1;
     setInterval(() => {
-        activities[2] = { name: ` ${client.channels.cache.size} Chats 🤞`, type: 'WATCHING' };
+        activities[2] = { name: ` ${client.channels.cache.size} Chats 🦇`, type: 'WATCHING' };
         activities[3] = { name: `=> ${client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)} USER`, type: 'LISTENING' };
         if (activity > 3) activity = 0;
         client.user.setActivity(activities[activity]);
@@ -294,11 +294,14 @@ fetch(`https://api.voidbots.net/bot/stats/832390209881899039`, {
               "Content-Type": "application/json"
             },
         
-          body: JSON.stringify({ "server_count": 98, "shard_count": 4 })
+          body: JSON.stringify({ "server_count": 102, "shard_count": 2 })
    }).then(response => response.text())
  .then(console.log).catch(console.error);
 
 ////////////
+
+
+
 
 
 

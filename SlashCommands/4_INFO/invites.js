@@ -23,7 +23,34 @@ module.exports = {
     run: async (client, interaction, args, message) => {
 const us = interaction.options.getUser('user') || interaction.user || interaction.author 
       
+const channel = interaction.channel
+            if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
 
+                   
+          ],
+                ephemeral: true,
+              });
+              
+
+      if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
+      
       if (!interaction.guild.me.permissions.has("MANAGE_GUILD")) return interaction.followUp({
         embeds: [
             new MessageEmbed()

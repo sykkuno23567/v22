@@ -8,8 +8,35 @@ const {CommandInteraction, Client, MessageEmbed} = require('discord.js')
       
   
      run: async (client, interaction) => { 
+       const us = interaction.user|| interaction.author 
+       const channel = interaction.channel
          const {guild} = interaction; 
-  
+        if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
+              
+
+      if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
          const {createdTimestamp, ownerId, description, members, memberCount, channels, emojis, stickers} = guild; 
   
          const embed = new MessageEmbed() 
@@ -29,24 +56,23 @@ const {CommandInteraction, Client, MessageEmbed} = require('discord.js')
                  }, 
   
                  { 
-                     name: "<:users:1030599694910492712>  | USERS", 
+                     name: "<:3643members:969929550756728842>  | Members", 
                      value: [ 
-                     `- \`Members:\` ${members.cache.filter((m) => !m.user.bot).size}`, 
-                     `- \`Bots:\` ${members.cache.filter((m) => m.user.bot).size}`, 
+                    
                      `**Total:** ${memberCount}` 
-                     ].join("\n") 
+                     ].join("\n")
                       
                  }, 
                  { 
-                     name:"<:chatn:1024451464111869962>  | CHANNELS ", 
+                     name:"<:chat:1024449897522548786>  | CHANNELS ", 
                      value:[ 
                       
                       `- \`Text:\` ${channels.cache.filter((c) => c.type === "GUILD_TEXT").size}`, 
                       `- \`Voice:\` ${channels.cache.filter((c) => c.type === "GUILD_VOICE").size}`, 
-                      `- \`Threads:\` ${channels.cache.filter((c) => c.type === "GUILD_PUBLIC_THREAD" && "GUILD_PRIVATE_THREAD" && "GUILD_NEWS_THREAD").size}`, 
+                     
                       `- \`Categories:\` ${channels.cache.filter((c) => c.type === "GUILD_CATEGORY").size}`, 
                       `- \`Stages:\` ${channels.cache.filter((c) => c.type === "GUILD_STAGE_VOICE").size}`, 
-                      `- \`News:\` ${channels.cache.filter((c) => c.type === "GUILD_NEWS").size}`, 
+                    
   
                        `**Total:** ${channels.cache.size}` 
                       

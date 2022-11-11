@@ -20,8 +20,36 @@ options: [
     run: async(client, interaction, args) => {
     
         const user = interaction.user|| interaction.author
-
+const channel = interaction.channel
       const user2 = interaction.options.getUser('user');
+      
+      const us = interaction.user|| interaction.author 
+            if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
+              
+
+      if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
 
       if(!user2) {
 

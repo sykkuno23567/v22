@@ -15,7 +15,44 @@ module.exports = {
     ],
     run: async (client, interaction, args, guild) => {
 const us = interaction.options.getUser('user')  || interaction.user 
+      const channel = interaction.channel
+            if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
+              
+
+      if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
       
+      const statuses = {
+  "online" : "<:sonline:1032759559418290239>",
+  "idle" : "<:sidel:1032759535342981181>",
+  "dnd" : "<:sdnd:1032759510261055528>",
+  "offline" : "<:soffline:1032759585989218324>",
+      }
+      let { member, channelId, guildId, applicationId, commandName, deferred, replied, ephemeral, options, id, createdTimestamp } = interaction; 
+    	
+		let user = options.getUser("user");
+		if(!user) user = member.user;
 
             const flags = {
       DISCORD_EMPLOYEE: `<:staff:1032389164781535283>`,
@@ -31,7 +68,7 @@ const us = interaction.options.getUser('user')  || interaction.user
       DISCORD_CERTIFIED_MODERATOR: `<:Moderation:969966899532271717>`,
       VERIFIED_BOT: `<:verifedbot:1032389169357541396>`,
       VERIFIED_DEVELOPER: `<:dev:1032389185182646432>`,
-              
+       ACTIVE_DEVELOPER: `<:ACTIVEDEVELOPER:1040730103480598593>`,       
 NITRO: `<:nitro:1032389176668209162>`,
                
    BOOSTER_1: `<:booster:1032389179327397978>`,
@@ -45,6 +82,9 @@ NITRO: `<:nitro:1032389176668209162>`,
    BOOSTER_9: "<:24months:1032441644563316746>",
 
     };
+
+
+
 const target =
       interaction.options.getMember("user") || interaction.member;
     const userFlags = target.user.flags.toArray();
@@ -57,7 +97,8 @@ const response = await fetch(
        ? data.data.public_flags_array.map((flag) => flags[flag]).join(" ") 
        : "No Badges.";
 
-
+const bio = data.data.bio
+      
           
          const u = interaction.options.getUser('user')  || interaction.user 
         var uu = interaction.guild.members.cache.get(u.id)
@@ -90,6 +131,8 @@ const response = await fetch(
        
        
          .addField(`<a:badges:1032441668219183214> • BADGE : `,`==> ${badges}`,true)
+.addField(`💬 • User bio : `,`\`${bio}\``,true)
+         .addField(`<:emoji_21:964500521178247228> • PRESENCE : `,`==> ${statuses[data.presence.status]} ${data.presence.status}`,true)
        .setColor(`#303134`)
        .setThumbnail(`${u.displayAvatarURL({size : 1024 , dynamic : true})}`)
       interaction.followUp({embeds : [e] , components : [ee]})

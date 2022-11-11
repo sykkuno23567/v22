@@ -40,10 +40,8 @@ if (!interaction.guild.me.permissions.has("MANAGE_CHANNELS")) return interaction
                    
           ],
                 ephemeral: true,
-              })
-              .then(msg => {
-    setTimeout(() => msg.delete(), 6000)
-  });
+              });
+              
 
       
       if (!interaction.member.permissions.has("MANAGE_CHANNELS") ) {
@@ -59,10 +57,8 @@ if (!interaction.guild.me.permissions.has("MANAGE_CHANNELS")) return interaction
                    
           ],
                 ephemeral: true,
-        })
-        .then(msg => {
-    setTimeout(() => msg.delete(), 4000)
-  });
+        });
+        
 
         
       }
@@ -77,10 +73,8 @@ if (!interaction.guild.me.permissions.has("MANAGE_CHANNELS")) return interaction
                    
           ],
                 ephemeral: true,
-              })
-              .then(msg => {
-    setTimeout(() => msg.delete(), 9000)
-  });
+              });
+              
 
       if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
    return interaction.editReply({    embeds: [
@@ -93,10 +87,8 @@ if (!interaction.guild.me.permissions.has("MANAGE_CHANNELS")) return interaction
                    
           ],
                 ephemeral: true,
-              })
-              .then(msg => {
-    setTimeout(() => msg.delete(), 9000)
-  });
+              });
+            
       
 
 

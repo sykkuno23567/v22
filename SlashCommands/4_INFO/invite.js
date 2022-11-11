@@ -11,11 +11,40 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, interaction, args) => {
+      const us = interaction.user|| interaction.author 
+      const channel = interaction.channel
+            if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
+              
+
+      if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
+      
       let msg = await interaction.followUp(`Inviting The Bot......✅`);
 
       const emb = new MessageEmbed()
       .setColor("RED")
-      .setTitle(`Invite SnapBox`)
+      .setTitle(`Invite SnapinGoo`)
       .setDescription(`**Once You Invite Me Run** </help:0> **To Get Started Managing Your Server The Right Way For You!**`)
       .setThumbnail(client.user.displayAvatarURL({ dynamic : true }))
       

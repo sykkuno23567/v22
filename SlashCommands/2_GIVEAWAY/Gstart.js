@@ -54,10 +54,8 @@ if (!interaction.guild.me.permissions.has("MANAGE_MESSAGES")) return interaction
                    
           ],
                 ephemeral: true,
-              })
-              .then(msg => {
-    setTimeout(() => msg.delete(), 9000)
-  });
+              });
+              
 
 
 
@@ -74,10 +72,8 @@ embeds: [
                    
           ],
                 ephemeral: true,
-              })
-              .then(msg => {
-    setTimeout(() => msg.delete(), 9000)
-  });
+              });
+              
       
     }
 
@@ -174,10 +170,8 @@ if (!interaction.guild.me.permissionsIn(giveawayChannel).has("VIEW_CHANNEL"))
                    
           ],
                 ephemeral: true,
-              })
-              .then(msg => {
-    setTimeout(() => msg.delete(), 9000)
-  });
+              });
+              
 
     
 if
@@ -192,10 +186,8 @@ if
                    
           ],
                 ephemeral: true,
-              })
-              .then(msg => {
-    setTimeout(() => msg.delete(), 9000)
-  });
+              });
+              
     
     
 client.giveawaysManager.start(giveawayChannel, {

@@ -16,7 +16,8 @@ module.exports = {
 
         // If the member doesn't have enough permissions
 
-    const us = interaction.user|| interaction.author 
+    const us = interaction.user|| interaction.author
+      const channel = interaction.channel
     // If the member doesn't have enough permissions
 if (!interaction.guild.me.permissions.has("MANAGE_MESSAGES")) return interaction.followUp({
         embeds: [
@@ -29,11 +30,34 @@ if (!interaction.guild.me.permissions.has("MANAGE_MESSAGES")) return interaction
                    
           ],
                 ephemeral: true,
-              })
-              .then(msg => {
-    setTimeout(() => msg.delete(), 9000)
-  });
+              });
+        
+      if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
 
+                   
+          ],
+                ephemeral: true,
+              });
+              
+
+      if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
       
         if (!interaction.member.permissions.has('MANAGE_MESSAGES') && !interaction.member.roles.cache.some((r) => r.name === "Giveaway Manager")) {
             return interaction.followUp({
