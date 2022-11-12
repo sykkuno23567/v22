@@ -16,12 +16,13 @@ module.exports = {
     run: async (client, interaction, args, guild) => {
 const us = interaction.options.getUser('user')  || interaction.user 
       const channel = interaction.channel
-            if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
+          //////////////////
+      if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
    return interaction.editReply({    embeds: [
             new MessageEmbed()
-              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
-                               
-          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+              .setColor("RANDOM")                
+              .setThumbnail(us.displayAvatarURL({ dynamic : true }))                 
+              .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE VIEW_CHANNEL PERMISSION.\` `) 
 .setTimestamp()
 
                    
@@ -31,17 +32,19 @@ const us = interaction.options.getUser('user')  || interaction.user
               
 
       if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
-   return interaction.editReply({    embeds: [
+   return interaction.Reply({    embeds: [
             new MessageEmbed()
-              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
-                               
-          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+              .setColor("RANDOM")               
+              .setThumbnail(us.displayAvatarURL({ dynamic : true }))                 
+          .setDescription(`<a:false:1007956851532505188> \` I DON'T HAVE SEND_MESSAGES PERMISSION. \` `) 
 .setTimestamp()
 
                    
           ],
                 ephemeral: true,
               });
+    
+    /////////////////
       
       const statuses = {
   "online" : "<:sonline:1032759559418290239>",
@@ -131,8 +134,8 @@ const bio = data.data.bio
        
        
          .addField(`<a:badges:1032441668219183214> • BADGE : `,`==> ${badges}`,true)
-.addField(`💬 • User bio : `,`\`${bio}\``,true)
-         .addField(`<:emoji_21:964500521178247228> • PRESENCE : `,`==> ${statuses[data.presence.status]} ${data.presence.status}`,true)
+.addField(`<a:sms:1040905354034290719> • User bio : `,`\`${bio}\``,true)
+         .addField(`<:emoji_21:964500521178247228> • PRESENCE : `,`==> ${statuses[data.presence.status ? data.presence.status : "offline"]} ${data.presence.status ? data.presence.status : "offline"}`,true)
        .setColor(`#303134`)
        .setThumbnail(`${u.displayAvatarURL({size : 1024 , dynamic : true})}`)
       interaction.followUp({embeds : [e] , components : [ee]})

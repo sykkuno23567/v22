@@ -32,12 +32,13 @@ if (!interaction.guild.me.permissions.has("MANAGE_MESSAGES")) return interaction
                 ephemeral: true,
               });
         
+       //////////////////
       if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
    return interaction.editReply({    embeds: [
             new MessageEmbed()
-              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
-                               
-          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+              .setColor("RANDOM")                
+              .setThumbnail(us.displayAvatarURL({ dynamic : true }))                 
+              .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE VIEW_CHANNEL PERMISSION.\` `) 
 .setTimestamp()
 
                    
@@ -47,17 +48,19 @@ if (!interaction.guild.me.permissions.has("MANAGE_MESSAGES")) return interaction
               
 
       if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
-   return interaction.editReply({    embeds: [
+   return interaction.Reply({    embeds: [
             new MessageEmbed()
-              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
-                               
-          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+              .setColor("RANDOM")               
+              .setThumbnail(us.displayAvatarURL({ dynamic : true }))                 
+          .setDescription(`<a:false:1007956851532505188> \` I DON'T HAVE SEND_MESSAGES PERMISSION. \` `) 
 .setTimestamp()
 
                    
           ],
                 ephemeral: true,
               });
+    
+    /////////////////
       
         if (!interaction.member.permissions.has('MANAGE_MESSAGES') && !interaction.member.roles.cache.some((r) => r.name === "Giveaway Manager")) {
             return interaction.followUp({

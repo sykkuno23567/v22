@@ -40,8 +40,41 @@ module.exports = {
   ],
 
   run: async (client, interaction, message) => {
+    
 
     const us = interaction.user|| interaction.author 
+
+
+if (!interaction.guild.me.permissionsIn(giveawayChannel).has("VIEW_CHANNEL")) 
+   return interaction.editReply({    embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE VIEW_CHANNEL PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
+              
+
+    
+if
+    (!interaction.guild.me.permissionsIn(giveawayChannel).has("SEND_MESSAGES")) return interaction.editReply({
+      embeds: [
+            new MessageEmbed()
+              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
+                               
+          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES PERMISSION.\` `) 
+.setTimestamp()
+
+                   
+          ],
+                ephemeral: true,
+              });
+
+    
     // If the member doesn't have enough permissions
 if (!interaction.guild.me.permissions.has("MANAGE_MESSAGES")) return interaction.followUp({
         embeds: [
@@ -159,34 +192,7 @@ const prize = interaction.options.getString('prize');
     const hostedBy = interaction.options.getUser('host') || interaction.user;
     const u = interaction.options.getUser('user')  || interaction.user 
 
-if (!interaction.guild.me.permissionsIn(giveawayChannel).has("VIEW_CHANNEL")) 
-   return interaction.editReply({    embeds: [
-            new MessageEmbed()
-              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
-                               
-          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
-.setTimestamp()
 
-                   
-          ],
-                ephemeral: true,
-              });
-              
-
-    
-if
-    (!interaction.guild.me.permissionsIn(giveawayChannel).has("SEND_MESSAGES","VIEW_CHANNEL")) return interaction.editReply({
-      embeds: [
-            new MessageEmbed()
-              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
-                               
-          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES PERMISSION.\` `) 
-.setTimestamp()
-
-                   
-          ],
-                ephemeral: true,
-              });
               
     
     

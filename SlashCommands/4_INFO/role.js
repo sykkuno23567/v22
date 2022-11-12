@@ -15,12 +15,13 @@ module.exports = {
   run: async (client, interaction, args) => {
     const us = interaction.user|| interaction.author 
       const channel = interaction.channel
-          if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
+          //////////////////
+      if (!interaction.guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) 
    return interaction.editReply({    embeds: [
             new MessageEmbed()
-              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
-                               
-          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+              .setColor("RANDOM")                
+              .setThumbnail(us.displayAvatarURL({ dynamic : true }))                 
+              .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE VIEW_CHANNEL PERMISSION.\` `) 
 .setTimestamp()
 
                    
@@ -30,17 +31,19 @@ module.exports = {
               
 
       if (!interaction.guild.me.permissionsIn(channel).has("SEND_MESSAGES")) 
-   return interaction.editReply({    embeds: [
+   return interaction.Reply({    embeds: [
             new MessageEmbed()
-              .setColor("RANDOM")                .setThumbnail(us.displayAvatarURL({ dynamic : true }))
-                               
-          .setDescription(`<a:false:1007956851532505188> \`I DON'T HAVE SEND_MESSAGES , VIEW_CHANNEL PERMISSION.\` `) 
+              .setColor("RANDOM")               
+              .setThumbnail(us.displayAvatarURL({ dynamic : true }))                 
+          .setDescription(`<a:false:1007956851532505188> \` I DON'T HAVE SEND_MESSAGES PERMISSION. \` `) 
 .setTimestamp()
 
                    
           ],
                 ephemeral: true,
               });
+    
+    /////////////////
     
         try {
     const role = interaction.guild.roles.cache.get(args[0]);
